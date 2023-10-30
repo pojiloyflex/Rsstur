@@ -6,7 +6,7 @@ on:
 
 jobs:
 
- test:
+ test-and-build:
    runs-on: ubuntu-latest
    steps:
    
@@ -26,17 +26,6 @@ jobs:
        with:
          name: test-results
          path: app/build/reports/tests/testDebugUnitTest/
-
- build-apk:
-   needs: test
-   runs-on: ubuntu-latest
-   steps:
-     - name: Set Java
-       uses: actions/setup-java@v3
-       with:
-         distribution: 'temurin'
-         java-version: '17'
-         cache: 'gradle'
          
      - name: Checkout code
        uses: actions/checkout@v2
