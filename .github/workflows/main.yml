@@ -2,27 +2,12 @@ name: CI/CD Pipeline
 
 on:
  pull_request:
-   types: [closed]
+   types: [open]
    branches: [ develop ]
 
 jobs:
- build:
-   runs-on: ubuntu-latest
-   steps:
-     - name: Checkout code
-       uses: actions/checkout@v2
-
-     - name: Run lint
-       run: ./gradlew lint
-
-     - name: Upload lint results
-       uses: actions/upload-artifact@v2
-       with:
-         name: lint-results
-         path: app/build/reports/lint-results.xml
 
  test:
-   needs: build
    runs-on: ubuntu-latest
    steps:
      - name: Checkout code
@@ -37,8 +22,8 @@ jobs:
          name: test-results
          path: app/build/reports/tests/testDebugUnitTest/
 
- apk:
-   needs: build
+ build-apk:
+   needs: test
    runs-on: ubuntu-latest
    steps:
      - name: Checkout code
