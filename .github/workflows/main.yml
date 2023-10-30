@@ -9,6 +9,13 @@ jobs:
  test:
    runs-on: ubuntu-latest
    steps:
+     - name: Set Java
+       uses: actions/setup-java@v3
+       with:
+         distribution: 'temurin'
+         java-version: '17'
+         cache: 'gradle'
+   
      - name: Checkout code
        uses: actions/checkout@v2
 
@@ -25,6 +32,13 @@ jobs:
    needs: test
    runs-on: ubuntu-latest
    steps:
+     - name: Set Java
+       uses: actions/setup-java@v3
+       with:
+         distribution: 'temurin'
+         java-version: '17'
+         cache: 'gradle'
+         
      - name: Checkout code
        uses: actions/checkout@v2
 
