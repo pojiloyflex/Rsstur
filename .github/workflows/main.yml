@@ -14,7 +14,7 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
       - name: Run lint
-        uses: ./gradlew lintDebug
+        run: ./gradlew lintDebug
       - name: Upload html test report
         uses: actions/upload-artifact@v2
         with:
@@ -27,7 +27,7 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
       - name: Run tests
-        uses: ./gradlew test
+        run: ./gradlew test
       - name: Upload test report
         uses: actions.upload-artifact@v2
         with:
