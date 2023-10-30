@@ -1,0 +1,54 @@
+name: CI/CD Pipeline
+
+on:
+ pull_request:
+   types: [closed]
+   branches: [ develop ]
+
+jobs:
+ build:
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+
+     - name: Run lint
+       run: ./gradlew lint
+
+     - name: Upload lint results
+       uses: actions/upload-artifact@v2
+       with:
+         name: lint-results
+         path: app/build/reports/lint-results.xml
+
+ test:
+   needs: build
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+
+     - name: Run unit tests
+       run: ./gradlew testDebugUnitTest
+
+     - name: Upload test results
+       uses: actions/upload-artifact@v2
+       with:
+         name: test-results
+         path: app/build/reports/tests/testDebugUnitTest/
+
+ apk:
+   needs: build
+   runs-on: ubuntu-latest
+   steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+
+     - name: Build APK
+       run: ./gradlew assembleDebug
+
+     - name: Upload APK
+       uses: actions/upload-artifact@v2
+       with:
+         name: app-debug
+         path: app/build/outputs/apk/debug/app-debug.apk
