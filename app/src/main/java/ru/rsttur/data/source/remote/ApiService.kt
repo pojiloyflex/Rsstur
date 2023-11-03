@@ -2,6 +2,7 @@ package ru.rsttur.data.source.remote
 
 import retrofit2.http.GET
 import retrofit2.http.Query
+import ru.rsttur.data.response.blog.BlogResponse
 import ru.rsttur.data.response.home_page.blog_preview.HomePageBlogPreviewResponse
 import ru.rsttur.data.response.home_page.card.HomePageCardResponse
 import ru.rsttur.data.response.home_page.content.HomePageResponse
@@ -14,7 +15,7 @@ import ru.rsttur.data.source.remote.ApiConstants.HOME_PAGE
 import ru.rsttur.data.source.remote.ApiConstants.ROOMS
 import ru.rsttur.data.source.remote.ApiConstants.TOURS
 
-private const val DEFAULT_ID = 117L
+const val DEFAULT_ID = 117L
 
 interface ApiService {
 
@@ -24,8 +25,8 @@ interface ApiService {
     @GET(BLOG)
     suspend fun getBlog(
         @Query("id") id: Long,
-        @Query("blog_id ") blogId: Long
-    )
+        @Query("blog_id") blogId: Long
+    ): BlogResponse
 
     @GET(BLOGS)
     suspend fun getBlogs(
