@@ -35,6 +35,7 @@ import ru.rsttur.domain.model.Blog
 import ru.rsttur.ui.components.ErrorContent
 import ru.rsttur.ui.components.LoadingContent
 import ru.rsttur.utils.ScreenState
+import ru.rsttur.utils.convertDateFormat
 
 @Composable
 fun BlogContent(navController: NavController, id: Long) {
@@ -82,12 +83,12 @@ fun Content(isDisplayed: Boolean, blog: Blog?) {
         Text(
             modifier = Modifier
                 .padding(top = 6.dp),
-            text = blog.date,
+            text = convertDateFormat(blog.date),
             fontWeight = FontWeight.Light,
             overflow = TextOverflow.Ellipsis,
             fontSize = 15.sp,
             lineHeight = 20.sp,
-            textAlign = TextAlign.Justify
+            textAlign = TextAlign.Start
         )
         Text(
             modifier = Modifier

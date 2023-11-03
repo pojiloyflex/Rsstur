@@ -76,12 +76,11 @@ fun HomePageContent(navController: NavController, title: String) {
             )
             LoadingContent(isDisplayed = state.value.screenState == ScreenState.LOADING)
             ErrorContent(isDisplayed = state.value.screenState == ScreenState.ERROR)
+
             LaunchedEffect(key1 = mainViewModel.effect) {
                 mainViewModel.effect.collect { effect ->
                     if (effect is HomePageEffect.NavigateToBlog) navController.navigate(
-                        Screen.Blog.route.plus(
-                            "/${effect.title}/${effect.blogId}"
-                        )
+                        Screen.Blog.route.plus("/${effect.blogId}")
                     )
                 }
             }
