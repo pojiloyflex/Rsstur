@@ -38,4 +38,8 @@ class BlogViewModel @Inject constructor(private val getBlogUseCase: GetBlog) :
             }
         }
     }
+
+    fun onNavigateToHomePage() {
+        postEffect(BlogEffect.NavigateToHomePage)
+    }
 }
