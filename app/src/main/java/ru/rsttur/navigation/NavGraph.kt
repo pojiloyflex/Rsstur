@@ -13,7 +13,7 @@ import ru.rsttur.ui.screens.home_page.HomePageContent
 fun NavGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.HomePage.route) {
         composable(Screen.HomePage.route) {
-            HomePageContent(navController, Screen.HomePage.id)
+            HomePageContent(navController, Screen.HomePage.title)
         }
         composable(
             route = "${Screen.Blog.route}/{${Screen.Blog.id}}",
