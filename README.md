@@ -13,7 +13,7 @@ This project is an implementation of the MVI (Model-View-Intent) architecture us
 - Hilt Navigation Compose: For navigation integration with Hilt
 - Navigation Compose: For navigation integration with Compose
 
-The application follows the MVI architecture, where the Model is responsible for fetching and providing data from local/remote sources, the View represents the UI layer, and the Intent represents user actions or events. The ViewModel handles user actions and transforms them into Intents, which are then processed by the Model and the new state is delivered to the View medium.com, medium.com.
+The application follows the MVI architecture, where the Model is responsible for fetching and providing data from local/remote sources, the View represents the UI layer, and the Intent represents user actions or events. The ViewModel handles user actions and transforms them into Intents, which are then processed by the Model and the new state is delivered to the View
 
 https://github.com/pojiloyflex/Rsttur/assets/113837245/e85167a5-8b59-46b5-a48f-6dbf6b05c23d
 
